@@ -1,0 +1,27 @@
+{
+  "name": "ticaje/m2-configuration",
+  "authors": [
+    {
+      "name": "Hector Luis Barrientos",
+      "email": "ticaje@filetea.me"
+    }
+  ],
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "description": "This module constitutes the foundations for using the settings according to design by contract basis",
+  "type": "magento2-module",
+  "require": {
+    "php": "~7.1.3||~7.2.0||~7.3.0"
+  },
+  "version": "1.0.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ticaje\\Configuration\\": ""
+    }
+  }
+}
