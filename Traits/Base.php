@@ -37,7 +37,7 @@ trait Base
      */
     public function getConfig($field = null, $storeId = null): string
     {
-        return $this->scopeConfig->getValue($this->getXmlPathForField($field), ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->getValue($this->getXmlPathForField($field), ScopeInterface::SCOPE_STORE, $storeId) ?: '';
     }
 
     /**
@@ -90,14 +90,6 @@ trait Base
     {
         $value = (string)(int)(bool)$value;
         return $this->setConfig($field, $value, $storeId);
-    }
-
-    /**
-     * @return string
-     */
-    public function getXmlGroupPath(): string
-    {
-        return self::XML_GROUP_PATH;
     }
 
     /**
