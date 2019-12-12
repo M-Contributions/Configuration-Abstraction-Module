@@ -6,39 +6,44 @@ declare(strict_types=1);
  * @category    Ticaje
  * @package     Ticaje_Configuration
  * @author      Hector Luis Barrientos <ticaje@filetea.me>
-*/
+ */
 
 namespace Ticaje\Configuration\Traits;
+
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Trait Status
  * @package Ticaje\Configuration\Traits
- * Classes using this trait must implement Ticaje\Configuration\Setting\StatusInterface
+ * Classes using this trait must implement Ticaje\Configuration\GeneralInterface
  */
 trait Status
 {
     /**
-     * @param null $storeId
-     * @return bool
+     * @inheritDoc
      */
     public function isEnabled($storeId = null): bool
     {
-        return $this->getConfigFlag(self::XML_FIELD_ENABLED, $storeId);
+        $field = self::XML_FIELD_ENABLED;
+        $config = $this->scopeConfig->getValue($this->getXmlGeneralPath($field), ScopeInterface::SCOPE_STORE, $storeId) ?: '';
+        return (bool)$config;
     }
 
     /**
-     * @param null $storeId
+     * @inheritDoc
      */
     public function enable($storeId = null)
     {
-        $this->setConfigFlag(self::XML_FIELD_ENABLED, self::ENABLED_VALUE, $storeId);
+        $value = (string)(int)(bool)self::ENABLED_VALUE;
+        $this->setValue(self::XML_FIELD_ENABLED, $value, $storeId);
     }
 
     /**
-     * @param null $storeId
+     * @inheritDoc
      */
     public function disable($storeId = null)
     {
-        $this->setConfigFlag(self::XML_FIELD_ENABLED, self::DISABLED_VALUE, $storeId);
+        $value = (string)(int)(bool)self::DISABLED_VALUE;
+        $this->setValue(self::XML_FIELD_ENABLED, $value, $storeId);
     }
 }
