@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * Base Configuration Class
  * @category    Ticaje
- * @package     Ticaje_Configuration
+ * @package     Ticaje_Setting
  * @author      Hector Luis Barrientos <ticaje@filetea.me>
  */
 
