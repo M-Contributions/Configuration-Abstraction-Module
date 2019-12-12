@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * Base Configuration Trait
  * @category    Ticaje
- * @package     Ticaje_Configuration
+ * @package     Ticaje_Setting
  * @author      Hector Luis Barrientos <ticaje@filetea.me>
  */
 
@@ -37,7 +37,7 @@ trait Base
      */
     public function getConfig($field = null, $storeId = null): string
     {
-        return $this->scopeConfig->getValue($this->getXmlPathForField($field), ScopeInterface::SCOPE_STORE, $storeId);
+        return $this->scopeConfig->getValue($this->getXmlPathForField($field), ScopeInterface::SCOPE_STORE, $storeId) ?: '';
     }
 
     /**
@@ -90,14 +90,6 @@ trait Base
     {
         $value = (string)(int)(bool)$value;
         return $this->setConfig($field, $value, $storeId);
-    }
-
-    /**
-     * @return string
-     */
-    public function getXmlGroupPath(): string
-    {
-        return self::XML_GROUP_PATH;
     }
 
     /**

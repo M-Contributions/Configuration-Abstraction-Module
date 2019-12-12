@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * Base Configuration Class
  * @category    Ticaje
- * @package     Ticaje_Configuration
+ * @package     Ticaje_Setting
  * @author      Hector Luis Barrientos <ticaje@filetea.me>
  */
 
@@ -15,6 +15,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 
 use Ticaje\Configuration\Traits\Base as BaseTrait;
 use Ticaje\Configuration\Traits\Status as StatusTrait;
+use Ticaje\Configuration\Traits\General as GeneralTrait;
 
 /**
  * Class Base
@@ -22,7 +23,7 @@ use Ticaje\Configuration\Traits\Status as StatusTrait;
  */
 abstract class Base implements ConfigInterface, StatusInterface
 {
-    use BaseTrait, StatusTrait;
+    use BaseTrait, StatusTrait, GeneralTrait;
 
     /**
      * Base constructor.
