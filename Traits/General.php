@@ -23,6 +23,8 @@ use Ticaje\Configuration\Setting\GeneralInterface;
  */
 trait General
 {
+    protected $generalPath = 'general'; // Could be overridden by client classes
+
     /**
      * @inheritDoc
      */
