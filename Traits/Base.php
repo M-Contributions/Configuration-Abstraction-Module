@@ -26,28 +26,24 @@ trait Base
 
     protected $resourceConfig;
 
-    protected $xmlGroupPath;
-
-    protected $xmlBasePath;
-
     /**
-     * @param null $field
+     * @param null $path
      * @param null $storeId
      * @return string
      */
-    public function getConfig($field = null, $storeId = null): string
+    public function getConfig($path = null, $storeId = null): string
     {
-        return $this->scopeConfig->getValue($this->getXmlPathForField($field), ScopeInterface::SCOPE_STORE, $storeId) ?: '';
+        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $storeId) ?: '';
     }
 
     /**
-     * @param null $field
+     * @param null $path
      * @param null $storeId
      * @return bool
      */
-    public function getConfigFlag($field = null, $storeId = null): bool
+    public function getConfigFlag($path = null, $storeId = null): bool
     {
-        return (bool)$this->getConfig($field, $storeId);
+        return (bool)$this->getConfig($path, $storeId);
     }
 
     /**
@@ -67,16 +63,16 @@ trait Base
     }
 
     /**
-     * @param $field
+     * @param $path
      * @param $value
      * @param null $storeId
      * @return $this
      */
-    public function setConfig($field, $value, $storeId = null): self
+    public function setConfig($path, $value, $storeId = null): self
     {
         $storeId = $storeId ?: Store::DEFAULT_STORE_ID;
         $scope = $storeId == Store::DEFAULT_STORE_ID ? ScopeConfigInterface::SCOPE_TYPE_DEFAULT : ScopeInterface::SCOPE_STORES;
-        $this->resourceConfig->saveConfig($this->getXmlPathForField($field), $value, $scope, $storeId);
+        $this->resourceConfig->saveConfig($path, $value, $scope, $storeId);
         return $this;
     }
 
@@ -93,23 +89,10 @@ trait Base
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
-    public function getXmlBasePath(): string
+    public function setValue($path, $value, $storeId = null)
     {
-        return $this->xmlBasePath;
-    }
-
-    /**
-     * @param null $field
-     * @return string
-     */
-    public function getXmlPathForField($field = null): string
-    {
-        $xmlPath = $this->getXmlBasePath() . '/' . $this->getXmlGroupPath();
-        if ($field) {
-            $xmlPath .= '/' . $field;
-        }
-        return $xmlPath;
+        return $this->setConfig($path, $value, $storeId);
     }
 }

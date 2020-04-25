@@ -14,16 +14,14 @@ use Magento\Config\Model\ResourceModel\Config as ResourceConfig;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 use Ticaje\Configuration\Traits\Base as BaseTrait;
-use Ticaje\Configuration\Traits\Status as StatusTrait;
-use Ticaje\Configuration\Traits\General as GeneralTrait;
 
 /**
  * Class Base
  * @package Ticaje\Configuration\Setting
  */
-abstract class Base implements ConfigInterface, StatusInterface
+abstract class Base implements ConfigInterface
 {
-    use BaseTrait, StatusTrait, GeneralTrait;
+    use BaseTrait;
 
     /**
      * Base constructor.
