@@ -45,20 +45,4 @@ interface ConfigInterface
      * @return mixed
      */
     public function setConfigFlag($field, $value, $storeId = null);
-
-    /**
-     * @return string
-     */
-    public function getXmlBasePath();
-
-    /**
-     * @return string
-     */
-    public function getXmlGroupPath();
-
-    /**
-     * @param null $field
-     * @return string
-     */
-    public function getXmlPathForField($field = null);
 }
