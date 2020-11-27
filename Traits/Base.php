@@ -29,9 +29,9 @@ trait Base
     /**
      * @param null $path
      * @param null $storeId
-     * @return string
+     * @return mixed
      */
-    public function getConfig($path = null, $storeId = null): string
+    public function getConfig($path = null, $storeId = null)
     {
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $storeId) ?: '';
     }
