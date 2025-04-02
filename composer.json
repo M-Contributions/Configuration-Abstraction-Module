@@ -13,7 +13,7 @@
   "description": "This module constitutes the foundations for using the settings according to design by contract basis",
   "type": "magento2-module",
   "require": {
-    "php": "^7.0"
+    "php": "^7.0 || ^8.0"
   },
   "repositories": [
     {
@@ -21,7 +21,7 @@
       "url": "https://repo.magento.com/"
     }
   ],
-  "version": "1.0.6",
+  "version": "2.0.0",
   "autoload": {
     "files": [
       "registration.php"
