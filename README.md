@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ticaje/m2-configuration.svg?style=flat-square)](https://packagist.org/packages/ticaje/m2-configuration)
 [![Quality Score](https://img.shields.io/scrutinizer/g/M-Contributions/Setting.svg?style=flat-square)](https://scrutinizer-ci.com/g/M-Contributions/Setting)
 [![Total Downloads](https://img.shields.io/packagist/dt/ticaje/m2-configuration.svg?style=flat-square)](https://packagist.org/packages/ticaje/m2-configuration)
+[![Author](https://img.shields.io/badge/HBLateral.com-%2302113a?style=labelColor=lightgrey)](https://hblateral.com)
 
 ## Preface
 
